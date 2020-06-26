@@ -17,6 +17,12 @@ class RestaurantsController < ApplicationController
     @restaurant.save ? redirect_to(@restaurant) : render(:new)
   end
 
+  def update
+    set_restaurant
+    @old_name = @restaurant.name
+    @restaurant.update name: params[:rename]
+  end
+
   def destroy
     set_restaurant
     @restaurant.destroy
