@@ -10,7 +10,7 @@ It was created from this [boilerplate](https://github.com/andrerferrer/rails-aja
 
 ### Create a form
 
-In the [view]():
+In the [view](https://github.com/andrerferrer/rails-js-erb-demo/blob/master/app/views/restaurants/partials/_restaurant_data.html.erb):
 
 ```erb
 <%= text_field :restaurant, 
@@ -22,7 +22,7 @@ In the [view]():
 
 ### Make an AJAX request with this form
 
-In your [javascript]():
+In your [javascript](https://github.com/andrerferrer/rails-js-erb-demo/blob/master/app/javascript/components/edit_restaurant_name.js):
 
 ```js
 const updateRestaurantName = (event) => {
@@ -65,7 +65,7 @@ Create the route (add `:update`):
   # etc
 ```
 
-Add the [controller]():
+Add the [controller](https://github.com/andrerferrer/rails-js-erb-demo/blob/master/app/controllers/restaurants_controller.rb):
 
 ```ruby
   def update
@@ -77,7 +77,7 @@ Add the [controller]():
 
 ### Finish it with a Javascript view, updating the DOM
 
-In the [view]() we will update the DOM:
+In the [view](https://github.com/andrerferrer/rails-js-erb-demo/blob/master/app/views/restaurants/update.js.erb) we will update the DOM:
 
 ```js
 document.getElementById('<%= @old_name %>')
