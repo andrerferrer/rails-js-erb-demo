@@ -4,7 +4,7 @@ import Rails from '@rails/ujs'
 // encapsule the logic in a function 
 const deleteRestaurant = () => {
   // call the function if it's the right page
-  const restaurantsIndex = document.querySelector("body.index.restaurants")
+  const restaurantsIndex = document.getElementById("restaurants-index")
   if (restaurantsIndex) {
     // find all elements which ids start with 'restaurant-'
     const deleteBtns = document.querySelectorAll("[id^=restaurant-]")
