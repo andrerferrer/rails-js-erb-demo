@@ -8,7 +8,11 @@
       <%= link_to restaurant.name, restaurant_path(restaurant) %>
 
       <%# this is another link to nowhere %>
-      <%= content_tag :button, "<i class='far fa-edit'></i>".html_safe, href: 'javascript:;', id: "edit-rest-#{restaurant.id}" %>
+      <%= content_tag :button, 
+                      "<i class='far fa-edit'></i>".html_safe, 
+                      href: 'javascript:;', 
+                      class: 'edit-btn' %>
+                      
       <%= render 'restaurants/partials/edit_restaurant_form', restaurant: restaurant %>
 
 
