@@ -27,7 +27,7 @@ import "bootstrap";
 
 // Internal imports, e.g:
 import { deleteRestaurant } from '../components/delete_restaurant';
-import { editRestaurantName } from '../components/edit_restaurant_name.js.erb';
+import { editRestaurantName } from '../components/edit_restaurant_name.js';
 
 document.addEventListener('turbolinks:load', () => {
   deleteRestaurant()

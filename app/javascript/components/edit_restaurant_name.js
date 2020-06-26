@@ -5,7 +5,6 @@ const editRestaurantName = () => {
 
     const renderForm = (currentBtn) => {
       currentBtn.outerHTML = `
-          <%= j (render 'restaurants/partials/edit_restaurant_form') %>
         ` 
     }
     
