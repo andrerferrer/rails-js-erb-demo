@@ -1,0 +1,13 @@
+<h1>Restaurants</h1>
+
+<%= link_to "Create a Restaurant", new_restaurant_path %>
+
+<ul>
+  <% @restaurants.each do |restaurant| %>
+    <li>
+      <%= link_to restaurant.name, restaurant_path(restaurant) %>
+      <%# This is a link to nowhere, the `javascript:;` means the JS no-operator %>
+      <%= link_to '❌', 'javascript:;', id: "restaurant-#{restaurant.id}" %>
+    </li>
+  <% end %>
+</ul>
