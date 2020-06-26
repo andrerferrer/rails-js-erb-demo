@@ -1,1 +1,1 @@
-document.getElementById("<%= @old_name %>").innerText = `<%= @restaurant.name %>`
+document.getElementById("<%= @old_name %>").innerHTML = `<%= j(render 'restaurants/partials/restaurant_data', restaurant: @restaurant ) %>`
