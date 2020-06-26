@@ -7,7 +7,7 @@ const deleteRestaurant = () => {
   const restaurantsIndex = document.getElementById("restaurants-index")
   if (restaurantsIndex) {
     // find all elements which ids start with 'restaurant-'
-    const deleteBtns = document.querySelectorAll("[id^=restaurant-]")
+    const deleteBtns = document.querySelectorAll("[id^=delete-restaurant-]")
 
     const ajaxCall = (event) => {
       const currentBtn = event.currentTarget
