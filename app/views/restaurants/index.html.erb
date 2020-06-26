@@ -5,7 +5,7 @@
 <ul>
   <% @restaurants.each do |restaurant| %>
     <li class="d-flex align-items-center">
-      <%= link_to restaurant.name, restaurant_path(restaurant) %>
+      <%= link_to restaurant.name, restaurant_path(restaurant), id: restaurant.name %>
 
       <%# this is another link to nowhere %>
       <%= content_tag :button, 
