@@ -4,8 +4,13 @@
 
 <ul>
   <% @restaurants.each do |restaurant| %>
-    <li>
+    <li class="d-flex align-items-center">
       <%= link_to restaurant.name, restaurant_path(restaurant) %>
+
+      <%# this is another link to nowhere %>
+      <%= content_tag :button, "<i class='far fa-edit'></i>".html_safe, href: 'javascript:;', id: "edit-rest-#{restaurant.id}" %>
+
+
       <%# This is a link to nowhere, the `javascript:;` means the JS no-operator %>
       <%= link_to '❌', 'javascript:;', id: "restaurant-#{restaurant.id}" %>
     </li>
