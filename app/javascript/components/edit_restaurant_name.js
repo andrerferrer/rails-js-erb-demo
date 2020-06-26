@@ -1,13 +1,19 @@
 import Rails from '@rails/ujs'
 
-const toggleBtnAndInput = (event) => {
-  const parentElement = event.currentTarget.parentElement
-  const currentBtn = parentElement.querySelector(".edit-btn")
-  const currentInput = parentElement.querySelector(".edit-input")
+const hideUnhideElements = (event) => {
 
-  currentBtn.classList.toggle('hidden')
-  currentInput.classList.toggle('hidden')
+  const toggleHidden = (element) => {
+    element.classList.toggle('hidden')
+  }
+
+  // select the parent element and toggle hidden on all the children elements
+  const parentElement = event.currentTarget.parentElement
+  Array.from(parentElement.children).forEach((childElement) => {
+    toggleHidden(childElement)
+  })
+
   // focus on input if it's no longer hidden
+  const currentInput = parentElement.querySelector(".edit-input")
   if (!currentInput.classList.contains('hidden')) currentInput.focus()
 }
 
@@ -41,13 +47,13 @@ const editRestaurantName = () => {
 
     // for each edit btn we add a click event to hide the btn and show the input
     editBtns.forEach( (editBtn) => {
-      editBtn.addEventListener('click', toggleBtnAndInput)
+      editBtn.addEventListener('click', hideUnhideElements)
     })
 
     // for each edit input we add a click event to hide the input and show the btn
     editInputs.forEach((editInput) => {
       
-      editInput.addEventListener('blur', toggleBtnAndInput)
+      editInput.addEventListener('blur', hideUnhideElements)
 
       // we'll also add an event listener to check if the user press enter, 
       // if so, we update the name in the DB
