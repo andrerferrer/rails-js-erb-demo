@@ -9,6 +9,7 @@
 
       <%# this is another link to nowhere %>
       <%= content_tag :button, "<i class='far fa-edit'></i>".html_safe, href: 'javascript:;', id: "edit-rest-#{restaurant.id}" %>
+      <%= render 'restaurants/partials/edit_restaurant_form', restaurant: restaurant %>
 
 
       <%# This is a link to nowhere, the `javascript:;` means the JS no-operator %>
@@ -16,6 +17,3 @@
     </li>
   <% end %>
 </ul>
-
-The below is just for testing
-<%= render 'restaurants/partials/edit_restaurant_form' %>
