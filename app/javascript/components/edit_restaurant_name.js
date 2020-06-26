@@ -26,24 +26,34 @@ const updateRestaurantName = (event) => {
 }
 
 const editRestaurantName = () => {
+  // check if we are on the restaurants index page
   const restaurantsIndex = document.getElementById("restaurants-index")
+  // if so, we'll run the code
   if (restaurantsIndex) {
 
+    // first, we select all edit btns and inputs
     const editBtns = document.querySelectorAll('.edit-btn')
-    
+    const editInputs = document.querySelectorAll('.edit-input')
+
+    // for each edit btn we add a click event to hide the btn and show the input
     editBtns.forEach( (editBtn) => {
       editBtn.addEventListener('click', (event) => {
-        const currentBtn = event.currentTarget
-        const parentElement = currentBtn.parentElement
-        const currentInput = parentElement.querySelector("input")
-    
-        toggleBtnAndInput(currentBtn, currentInput)
-        
-        currentInput.addEventListener('keypress', updateRestaurantName)
-        currentInput.addEventListener('blur', (event) => {
-          toggleBtnAndInput(currentBtn, currentInput)
-        })
+        const currentInput = event.currentTarget.parentElement.querySelector("input")
+        toggleBtnAndInput(editBtn, currentInput)
       })
+    })
+
+    // for each edit input we add a click event to hide the input and show the btn
+    editInputs.forEach((editInput) => {
+      
+      editInput.addEventListener('blur', (event) => {
+        const currentBtn = event.currentTarget.parentElement.querySelector(".edit-btn")
+        toggleBtnAndInput(currentBtn, editInput)
+      })
+
+      // we'll also add an event listener to check if the user press enter, 
+      // if so, we update the name in the DB
+      editInput.addEventListener('keypress', updateRestaurantName)
     })
 
   }
