@@ -4,20 +4,6 @@
 
 <ul>
   <% @restaurants.each do |restaurant| %>
-    <li class="d-flex align-items-center">
-      <%= link_to restaurant.name, restaurant_path(restaurant), id: restaurant.name %>
-
-      <%# this is another link to nowhere %>
-      <%= content_tag :button, 
-                      "<i class='far fa-edit'></i>".html_safe, 
-                      href: 'javascript:;', 
-                      class: 'edit-btn' %>
-                      
-      <%= render 'restaurants/partials/edit_restaurant_form', restaurant: restaurant %>
-
-
-      <%# This is a link to nowhere, the `javascript:;` means the JS no-operator %>
-      <%= link_to '❌', 'javascript:;', id: "delete-restaurant-#{restaurant.id}" %>
-    </li>
+    <%= render 'restaurants/partials/restaurant_data', restaurant: restaurant %>
   <% end %>
 </ul>
