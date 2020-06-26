@@ -1,6 +1,10 @@
 import Rails from '@rails/ujs'
 
-const toggleBtnAndInput = (currentBtn, currentInput) => {
+const toggleBtnAndInput = (event) => {
+  const parentElement = event.currentTarget.parentElement
+  const currentBtn = parentElement.querySelector(".edit-btn")
+  const currentInput = parentElement.querySelector(".edit-input")
+
   currentBtn.classList.toggle('hidden')
   currentInput.classList.toggle('hidden')
   // focus on input if it's no longer hidden
@@ -10,18 +14,18 @@ const toggleBtnAndInput = (currentBtn, currentInput) => {
 const updateRestaurantName = (event) => {
   if (event.key == "Enter") {
     const id = event.currentTarget.id.slice(-1)
-
-    Rails.ajax({
-      url: `/restaurants/${id}`,
-      type: "put",
-      // if we had data, we could add it like this
-      // data: "",
-      success: function(data) { 
-        // remove button
-        currentBtn.parentElement.remove() 
-      },
-      error: function(data) {alert('something went wrong!')}
-    })
+    console.log(id)
+    // Rails.ajax({
+    //   url: `/restaurants/${id}`,
+    //   type: "put",
+    //   // if we had data, we could add it like this
+    //   // data: "",
+    //   success: function(data) { 
+    //     // remove button
+    //     currentBtn.parentElement.remove() 
+    //   },
+    //   error: function(data) {alert('something went wrong!')}
+    // })
   }
 }
 
@@ -37,19 +41,13 @@ const editRestaurantName = () => {
 
     // for each edit btn we add a click event to hide the btn and show the input
     editBtns.forEach( (editBtn) => {
-      editBtn.addEventListener('click', (event) => {
-        const currentInput = event.currentTarget.parentElement.querySelector("input")
-        toggleBtnAndInput(editBtn, currentInput)
-      })
+      editBtn.addEventListener('click', toggleBtnAndInput)
     })
 
     // for each edit input we add a click event to hide the input and show the btn
     editInputs.forEach((editInput) => {
       
-      editInput.addEventListener('blur', (event) => {
-        const currentBtn = event.currentTarget.parentElement.querySelector(".edit-btn")
-        toggleBtnAndInput(currentBtn, editInput)
-      })
+      editInput.addEventListener('blur', toggleBtnAndInput)
 
       // we'll also add an event listener to check if the user press enter, 
       // if so, we update the name in the DB
