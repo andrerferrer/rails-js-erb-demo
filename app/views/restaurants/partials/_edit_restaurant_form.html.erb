@@ -1,1 +1,5 @@
-<%= text_field :restaurant, :rename, placeholder: "Rename #{restaurant.name}", autofocus: true, class: 'hidden' %>
+<%= text_field :restaurant, 
+               :rename, 
+               placeholder: "Rename #{restaurant.name}", 
+               class: 'hidden',
+               id: "edit-restaurant-form-#{restaurant.id}" %>
