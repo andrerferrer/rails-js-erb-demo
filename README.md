@@ -8,7 +8,7 @@ It was created from this [boilerplate](https://github.com/andrerferrer/rails-aja
 
 ## What needs to be done?
 
-### Create a form
+### Create an input
 
 In the [view](https://github.com/andrerferrer/rails-js-erb-demo/blob/master/app/views/restaurants/partials/_restaurant_data.html.erb):
 
